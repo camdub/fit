@@ -1,8 +1,8 @@
-require 'sinatra/base'
-require 'sprockets'
-require 'sprockets-helpers'
+require './fitbit_updater'
 
-class Fit < Sinatra::Base
+Sinatra::register Gon::Sinatra
+
+class Fit < Sinatra::Application
 
   set :sprockets, Sprockets::Environment.new(root)
   set :assets_prefix, '/assets'
@@ -29,7 +29,23 @@ class Fit < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    redis = FitbitUpdater.redis
+    gon.distance = redis['distance']
+    gon.last_updated = redis['last_updated']
+    gon.caloriesIn = redis['caloriesIn']
+
+    @beating_zack = JSON(redis['leaderboard'])['friends'].first['rank']['steps'] != 1
+    @margin_zack = get_step_margin(JSON(redis['leaderboard']))
+    haml :index
+  end
+
+  private 
+
+  def get_step_margin(leaderboard)
+    zack = leaderboard['friends'].first
+    me = leaderboard['friends'][1]
+
+    me['summary']['steps'] - zack['summary']['steps']
   end
 
 end

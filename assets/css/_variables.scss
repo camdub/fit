@@ -1,0 +1,34 @@
+$body-font: "camingodos-web",sans-serif;
+$heading-font: "aw-conqueror-carved-one", sans-serif;
+$red: rgba(238, 104, 93, 1.0);
+$shadow: shade($red, 20%);
+
+$text-color: #555;
+$green: rgba(58, 165, 104, 1.0);
+
+@mixin sticky-footer(
+  $height: 50px,
+  $main-selector: '.container',
+  $content-selector: '.content',
+  $footer-selector: '.footer'
+) {
+  html, body, #{$main-selector} {
+    height: 100%;
+  }
+  body > #{$main-selector} {
+    //height: auto;
+    min-height: 100%;
+  }
+  #{$content-selector} {
+    @include clearfix;
+    margin-bottom: $height;
+  }
+  #{$footer-selector} {
+    clear: both;
+    height: $height;
+    margin-top: -$height;
+    position: relative;
+    z-index: 10;
+  }
+}
+@include sticky-footer();

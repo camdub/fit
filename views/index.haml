@@ -1,0 +1,14 @@
+%section.miles
+  .left
+    %h3 Miles Traveled
+    %canvas{id: 'steps', width: '520', height: '200'}
+  .right
+    %h3 Calories In
+    %canvas{id: 'calories', width: '520', height: '200'}
+%section.text-stats
+  .leaderboard 
+    %h3 Am I beating Zack this week? 
+    %p #{@beating_zack ? 'Yes' : 'No'} by #{@margin_zack} steps
+  .sleep
+    %h3 Hours Slept last night:
+    %p 6h 20m
