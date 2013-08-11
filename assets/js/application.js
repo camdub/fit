@@ -81,4 +81,5 @@ Zepto(function($) {
   });
 
   $('.time-ago').html(moment.utc(gon.last_updated).fromNow());
+  $('.my').click(function() { $('audio')[0].play(); });
 });

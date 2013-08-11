@@ -14,17 +14,16 @@
       %header
         %h1
           get on
-          %a.my{:href => "http://camdub.io"} my
+          %span.my my
           level.
         .updated
           Last updated 
           %span.time-ago sometime recent
-          | 
-          %a{href: '#'} About
       = yield
       .push
     .footer
       %footer 
         %a{href: "http://camdub.io"} Cameron Woodmansee 
         © 2013 - 
-        %a{href: ""} View Code on Github
+        %a{href: "https://github.com/camdub/fit"} View Code on Github
+    %audio{src: 'https://api.soundcloud.com/tracks/29504355/download?client_id=b45b1aa10f1ac2941910a7f0d10f8e28', preload: 'auto'}/ 

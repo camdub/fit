@@ -21,7 +21,7 @@ class FitbitUpdater
     end
 
     def redis
-      uri = URI.parse('redis://redistogo:5f2371feb9c56a3fcd1ae6a6fb6406cd@crestfish.redistogo.com:9025')
+      uri = URI.parse(ENV['REDIS_URI'])
       Redis.new(host: uri.host, port: uri.port, password: uri.password)
     end
 
@@ -29,10 +29,10 @@ class FitbitUpdater
 
     def fitbit_client
       Fitgem::Client.new({
-        consumer_key: '2675ab1c5fd24cf593de8cbdeb24b084',
-        consumer_secret: 'dc2438c31a4f43348c5e1ca11921006d',
-        token: 'b89ec6979afdb5ab6a75914d474517b1',
-        secret: 'f8d51496432df15e7b8f2019e98b4ae9'
+        consumer_key: ENV['CONSUMER_KEY'],
+        consumer_secret: ENV['CONSUMER_SECRET'],
+        token: ENV['TOKEN'],
+        secret: ENV['SECRET']
       })
     end
 

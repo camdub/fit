@@ -39,6 +39,7 @@ a {
   .leaderboard {
     @include span-columns(6);
     .yes { color: $blue; }
+    .no { color: $red; }
     .icon-trophy {
       @include span-columns(1);
       font-size: 60px;
@@ -119,6 +120,7 @@ header {
   &:hover {
     color: tint($red, 20%);
     @include transition(color 0.5s);
+    cursor: pointer;
   }
 }
 
