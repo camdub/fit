@@ -15,7 +15,7 @@ class Fit < Sinatra::Application
     Sprockets::Helpers.configure do |config|
       config.environment = sprockets
       config.prefix      = assets_prefix
-      # config.digest      = digest_assets
+      config.digest      = true
       # config.public_path = public_folder
 
       # Debug mode automatically sets
