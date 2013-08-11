@@ -1,6 +1,21 @@
+@import 'normalize';
 @import 'bourbon/bourbon';
 @import 'neat/neat';
 @import 'variables';
+@import 'icons';
+
+@include sticky-footer();
+
+a {
+  color: $text-color;
+  @include transition(color 0.5s);
+  text-decoration: none;
+
+  &:hover {
+    color: $blue;
+    @include transition(color 0.25s);
+  }
+}
 
 .miles {
   font-family: $body-font;
@@ -9,23 +24,68 @@
   }
   .right {
     @include span-columns(6);
+    @include omega();
   }
+}
+
+.push {
+  height: 30px;
+  clear: both;
 }
 
 .text-stats {
   @include span-columns(12);
 
   .leaderboard {
-    @include span-columns(4);
-    text-align: center;
+    @include span-columns(6);
+    .yes { color: $blue; }
+    .icon-trophy {
+      @include span-columns(1);
+      font-size: 60px;
+      color: #eee;
+      margin-top: 40px;
+    }
+    .leaderboard-text {
+      @include span-columns(7);
+    }
 
     p {
+      margin-top: -15px;
+      margin-bottom: 0;
+      span.zack {
+        font-size: 50px;
+      }
+      span.step-margin {
+        position: relative;
+        top: -6px;
+        left: 8px;
+        font-size: 18px;
+      }
       font-size: 20px;
+    }
+  }
+
+  .sleep {
+    @include span-columns(6);
+
+    .icon-alarm {
+      @include span-columns(1);
+      font-size: 60px;
+      margin-top: 35px;
+      color: #eee;
+    }
+    .sleep-text {
+      @include span-columns(6);
+    }
+    p { 
+      font-size: 50px; 
+      margin-top: -15px;
+      color: $blue;
     }
   }
 }
 
-.content {
+.wrapper {
   @include outer-container;
 }
 
@@ -57,7 +117,7 @@ header {
   @include transition(color 0.5s);
 
   &:hover {
-    color: tint($green, 20%);
+    color: tint($red, 20%);
     @include transition(color 0.5s);
   }
 }

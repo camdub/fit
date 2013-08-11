@@ -10,16 +10,21 @@
     = javascript_tag 'application', expand: true
     %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
   %body
-    .container
-      .content
-        %header
-          %h1
-            get on
-            %a.my{:href => "http://camdub.io"} my
-            level.
-          .updated
-            Last updated 
-            %span.time-ago sometime recent
-        = yield
+    .wrapper
+      %header
+        %h1
+          get on
+          %a.my{:href => "http://camdub.io"} my
+          level.
+        .updated
+          Last updated 
+          %span.time-ago sometime recent
+          | 
+          %a{href: '#'} About
+      = yield
+      .push
     .footer
-      %footer Cameron Woodmansee © 2013
+      %footer 
+        %a{href: "http://camdub.io"} Cameron Woodmansee 
+        © 2013 - 
+        %a{href: ""} View Code on Github

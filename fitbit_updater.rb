@@ -6,7 +6,6 @@ Bundler.require
 class FitbitUpdater
 
   @@today = Date.today
-  @@last_week = @@today - 7
 
   class << self
 
@@ -16,6 +15,7 @@ class FitbitUpdater
 
       @redis['distance'] = JSON.dump(@client.data_by_time_range('/activities/log/distance', base_date: @@today.to_s, period: '1w')['activities-log-distance'])
       @redis['caloriesIn'] = JSON.dump(@client.data_by_time_range('/foods/log/caloriesIn', base_date: @@today.to_s, period: '1w')['foods-log-caloriesIn'])
+      @redis['sleep'] = @client.data_by_time_range('/sleep/minutesAsleep', base_date: @@today.to_s, period: '1d')['sleep-minutesAsleep'][0]['value'].to_i
       @redis['leaderboard'] = JSON.dump(@client.weekly_leaderboard)
       @redis['last_updated'] = Time.now.utc
     end

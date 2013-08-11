@@ -5,10 +5,17 @@
   .right
     %h3 Calories In
     %canvas{id: 'calories', width: '520', height: '200'}
+.push
 %section.text-stats
   .leaderboard 
-    %h3 Am I beating Zack this week? 
-    %p #{@beating_zack ? 'Yes' : 'No'} by #{@margin_zack} steps
+    .icon-trophy
+    .leaderboard-text
+      %h3 Am I beating Zack this week? 
+      %p 
+        %span(class="#{@beating_zack ? 'yes' : 'no'} zack")= @beating_zack ? 'Yes' : 'No'
+        %span.step-margin by #{@margin_zack} steps
   .sleep
-    %h3 Hours Slept last night:
-    %p 6h 20m
+    .icon-alarm
+    .sleep-text
+      %h3 Time Slept Last Night
+      %p= @sleep

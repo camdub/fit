@@ -36,9 +36,9 @@ var dataDistance = {
   labels: dayLabels,
   datasets: [
     {
-      fillColor : "rgba(46, 204, 113, 0.025)",
-      strokeColor : "rgba(39, 174, 96,0.7)",
-      pointColor : "rgba(39, 174, 96,1)",
+      fillColor : "rgba(52, 152, 219,0.025)",
+      strokeColor : "rgba(52, 152, 219,0.7)",
+      pointColor : "rgba(52, 152, 219,1.0)",
       pointStrokeColor : "#fff",
       data: distance.pluck('value')
     }
@@ -49,8 +49,8 @@ var dataCalories = {
   labels: dayLabels,
   datasets: [
     {
-      fillColor: "rgba(238, 104, 93, 0.025)",
-      strokeColor: "rgba(238, 104, 93, 1.0)",
+      fillColor: "rgba(52, 152, 219,0.025)",
+      strokeColor: "rgba(52, 152, 219,1.0)",
       data: caloriesIn.pluck('value')
     }
   ]
